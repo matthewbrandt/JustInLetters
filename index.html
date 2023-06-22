@@ -1,20 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JustInLetters</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- <script src="bread.js"></script> -->
-    <script src="l_tmi.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/text-vide/dist/index.iife.js"></script>
-</head>
-<body>
-    <script src="bionic.js"></script>
-    <h1>JustInLetters: Read your Twitch chat bionically!</h1>
-    <div id="chatNode">
-        <div id="chatMessage">
-        </div>
-    </div>
-</body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0">
+        <title>JustInLetters</title>
+
+        <link rel="stylesheet"
+              href="styles/style.css?v=1.0.1">
+        <!-- <script src="bread.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.3/dist/purify.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/text-vide/dist/index.iife.js"></script>
+        <script src="scripts/l_tmi.js"></script>
+    </head>
+
+    <body>
+        <h1>JustInLetters: Read your Twitch chat bionically!</h1>
+        <button id="showDialog">Settings</button>
+
+        <div id="chatContainer"></div>
+
+        <dialog id="dialog">
+            <h1>Settings</h1>
+            <form class="dialog-form">
+                <div class="dialog-textarea">
+                    <label for="channels">Channels to listen (One per line)</label>
+                    <textarea type="text"
+                              id="channels"
+                              rows="8"
+                              name="channels"></textarea>
+                </div>
+                <div>
+                    <input type="checkbox"
+                           id="badges"
+                           name="badges">
+                    <label for="badges">Show chat badges</label>
+                </div>
+                <div>
+                    <input type="checkbox"
+                           id="bionic"
+                           name="bionic">
+                    <label for="bionic">Use bionic style</label>
+                </div>
+
+                <div class="dialog-textarea">
+                    <label for="ignored">Usernames to ignore (One per line)</label>
+                    <textarea type="text"
+                              id="ignored"
+                              rows="8"
+                              name="ignored"></textarea>
+                </div>
+
+                <div class="dialog-buttons">
+                    <button value="cancel"
+                            formmethod="dialog">Cancel</button>
+                    <button id="confirmBtn"
+                            value="default">Confirm</button>
+                </div>
+            </form>
+        </dialog>
+
+        <script type="module"
+                defer
+                src="scripts/script.js?v=1.0.1"></script>
+    </body>
+
 </html>
