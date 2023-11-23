@@ -1,6 +1,20 @@
+
+// determine channel from localstorage if present
+// if no localstorage, prompt for channel name
+
 const client = new tmi.client({
 	channels: ['matty_twoshoes']
 });
+
+function configShow() {
+	let configWindow = document.getElementById('configWindow');
+	configWindow.classList.add("showing");
+}
+
+function configHide() {
+	let configWindow = document.getElementById('configWindow');
+	configWindow.classList.remove("showing");
+}
 
 function messageParse(displayName, nameColour, message) {
 
@@ -40,7 +54,6 @@ function messageParse(displayName, nameColour, message) {
 		window.scrollTo(0, document.body.scrollHeight);
 	}
 }
-
 
 client.on('message', (channel, tags, message, self) => {
 	if (self) return;

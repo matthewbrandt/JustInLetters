@@ -6,15 +6,27 @@
     <title>JustInLetters</title>
     <link rel="stylesheet" href="style.css">
     <!-- <script src="bread.js"></script> -->
-    <script src="l_tmi.js"></script>
+    <script src="/scripts/l_tmi.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/config.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/text-vide/dist/index.iife.js"></script>
 </head>
 <body>
-    <script src="bionic.js"></script>
     <h1>JustInLetters: Read your Twitch chat bionically!</h1>
-    <div id="chatNode">
-        <div id="chatMessage">
+    <main>
+        <div id="chatNode">
+            <div id="chatMessage">
+            </div>
         </div>
-    </div>
+        <div>      
+            <div id="configShow">
+                <button onClick="configShow()">show me</button>
+            </div>
+            <div id="configWindow">
+                <button onClick="configHide()">hide me</button>
+                this is the config area
+            </div>
+        </div>
+    </main> 
 </body>
 </html>

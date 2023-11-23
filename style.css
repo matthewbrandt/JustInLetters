@@ -7,12 +7,12 @@
 
 @font-face {
 	font-family: Atkinson-Hyperlegible;
-	src: url('Atkinson-Hyperlegible-Regular-102.ttf') format('opentype');
+	src: url('../fonts/Atkinson-Hyperlegible-Regular-102.ttf') format('opentype');
 }
 
 @font-face {
 	font-family: Atkinson-Hyperlegible;
-	src: url('Atkinson-Hyperlegible-Bold-102.ttf') format('opentype');
+	src: url('../fonts/Atkinson-Hyperlegible-Bold-102.ttf') format('opentype');
 	font-weight: bold;
 }
 
@@ -52,11 +52,37 @@ a {
 }
 
 p {
-    font-size: 20px;
-	line-height: 1rem;
+    font-size: 18px;
+	line-height: 1.3rem;
 	letter-spacing: 0.05rem;
 }
 
 span::after {
 	content: ': '
   }
+
+main {
+	display: flex;
+	flex-grow: 1;
+}
+
+#chatNode {
+	width: 50%;
+	flex-grow: 1;
+}
+
+#configWindow {
+	background-color: red;
+	width: 50%;
+	flex-grow: 1;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	translate: 100%;
+}
+
+#configWindow.showing {
+	translate: none;
+	animation: transform 420ms ease-in-out;
+}
