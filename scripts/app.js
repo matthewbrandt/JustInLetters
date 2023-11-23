@@ -16,10 +16,26 @@ function configHide() {
 	configWindow.classList.remove("showing");
 }
 
+function sanitize(message) {
+	return DOMPurify.sanitize(message, {
+		FORBID_ATTR: ['style', 'onerror', 'onload', 'class', 'width', 'height', 'dir','img','br','a'],
+		ALLOWED_TAGS: ['marquee','blink'],
+	});
+}
+
 function messageParse(displayName, nameColour, message) {
 
 	if (!message.startsWith('!')) {
-		const bionicMessage = textVide.textVide(message);
+
+		// santize html inputs to avoid issues
+		let bionicMessage = sanitize(message);
+		// if input was sanitised, return a fixed string value
+		if (bionicMessage == '') {
+			bionicMessage = '<strike>[REDACTED]</strike>';
+		}
+		else {
+			bionicMessage = textVide.textVide(bionicMessage);
+		}
 		
 		// create name element
 		const nameTag = document.createElement('span');

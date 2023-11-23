@@ -42,6 +42,12 @@ body:not(b) {
 	color: var(--lightgrey);
 }
 
+h1 .pageHeader {
+	background-color: var(--darkgrey);
+	position: sticky;
+	top: 0;
+}
+
 ol,
 ul {
 	list-style: none;
