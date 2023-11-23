@@ -87,6 +87,7 @@ function fart(channel) {
 // if URL parameter is present, overwrite localStorage value
 if (paramValue !== undefined) {
 	document.getElementById('noChannel').style.display = "none";
+	document.getElementById('noChannelDefined').style.display = "block";
 	localStorage.setItem('channelName',paramValue);
 	channel = paramValue;
 	// console.log("URL parameter found, overwriting localStorage")
@@ -99,15 +100,10 @@ if (paramValue !== undefined) {
 // if no URL parameter, determine channel from localstorage
 else if (localStorage.getItem('channelName')) {
 	document.getElementById('noChannel').style.display = "none";
+	document.getElementById('noChannelDefined').style.display = "block";
 	channel = localStorage.getItem('channelName');
 	// console.log("localStorage channel found");
 	document.getElementById('channelName').innerText = channel;
 	fart(channel);
-}
-
-// if no localstorage value then pull from URL parameter and write to localStorage
-else {
-	// console.log("no localstorage var or url parameter found");
-	// show landing page with instructions
 }
 

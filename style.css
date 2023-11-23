@@ -49,7 +49,9 @@ h1 .pageHeader {
 	top: 0;
 }
 
-
+h4#noChannelDefined {
+	display: none;
+}
 
 ol,
 ul {
@@ -71,6 +73,14 @@ span::after {
   }
 
 span#channelName::after {
+	content: '';
+}
+
+span.instructions {
+	color: var(--vanilla);
+}
+
+span.instructions::after{
 	content: '';
 }
 
