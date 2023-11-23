@@ -1,10 +1,4 @@
 
-// determine channel from localstorage if present
-// if no localstorage, prompt for channel name
-
-const client = new tmi.client({
-	channels: ['matty_twoshoes']
-});
 
 function configShow() {
 	let configWindow = document.getElementById('configWindow');
@@ -71,9 +65,49 @@ function messageParse(displayName, nameColour, message) {
 	}
 }
 
-client.on('message', (channel, tags, message, self) => {
-	if (self) return;
-	messageParse(tags['display-name'],tags['color'],message);
-});
+let channel;
 
-client.connect();
+const params = new URLSearchParams(window.location.search);
+let paramsObj = Object.fromEntries(params);
+let paramValue = paramsObj.c;
+
+function fart(channel) {
+	const client = new tmi.client({
+		channels: [channel]
+	});
+	
+	client.on('message', (channel, tags, message, self) => {
+		if (self) return;
+		messageParse(tags['display-name'],tags['color'],message);
+	});
+	
+	client.connect();
+}
+
+// if URL parameter is present, overwrite localStorage value
+if (paramValue !== undefined) {
+	document.getElementById('noChannel').style.display = "none";
+	localStorage.setItem('channelName',paramValue);
+	channel = paramValue;
+	// console.log("URL parameter found, overwriting localStorage")
+	// clear parameter from the URL
+	window.history.pushState({}, document.title, "/");
+	document.getElementById('channelName').innerText = channel;
+	fart(channel);
+}
+
+// if no URL parameter, determine channel from localstorage
+else if (localStorage.getItem('channelName')) {
+	document.getElementById('noChannel').style.display = "none";
+	channel = localStorage.getItem('channelName');
+	// console.log("localStorage channel found");
+	document.getElementById('channelName').innerText = channel;
+	fart(channel);
+}
+
+// if no localstorage value then pull from URL parameter and write to localStorage
+else {
+	// console.log("no localstorage var or url parameter found");
+	// show landing page with instructions
+}
+

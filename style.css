@@ -2,6 +2,7 @@
 	--black: #000;
 	--darkgrey: #323234;
 	--lightgrey: #8E8E93;
+	--vanilla: #F6EFA6;
     --white: #fff;
 }
 
@@ -48,6 +49,8 @@ h1 .pageHeader {
 	top: 0;
 }
 
+
+
 ol,
 ul {
 	list-style: none;
@@ -66,6 +69,14 @@ p {
 span::after {
 	content: ': '
   }
+
+span#channelName::after {
+	content: '';
+}
+
+span#channelName {
+	color: var(--vanilla);
+}
 
 main {
 	display: flex;
