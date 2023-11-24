@@ -6,15 +6,35 @@
     <title>JustInLetters</title>
     <link rel="stylesheet" href="style.css">
     <!-- <script src="bread.js"></script> -->
-    <script src="l_tmi.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/text-vide/dist/index.iife.js"></script>
+    <script src="/scripts/l_tmi.js"></script>
+    <!-- <script src="/scripts/config.js"></script> -->
+    <script defer src="/scripts/app.js"></script>
 </head>
 <body>
-    <script src="bionic.js"></script>
-    <h1>JustInLetters: Read your Twitch chat bionically!</h1>
-    <div id="chatNode">
-        <div id="chatMessage">
+    <h1 class="pageHeader">JustInLetters: Read your Twitch chat bionically!</h1>
+    <div id="noChannel">
+        <div>
+            <p>There is no channel currently configured!</p>
+            <p>Append <span class="instructions">"?c=channelname"</span> to the URL and reload the page!</p>
         </div>
     </div>
+    <h4 id="noChannelDefined">Channel <span id="channelName">X</span> is connected.</h2>
+    <main>
+        <div id="chatNode">
+            <div id="chatMessage">
+            </div>
+        </div>
+        <!-- <div>      
+            <div id="configShow">
+                <button onClick="configShow()">show me</button>
+            </div>
+            <div id="configWindow">
+                <button onClick="configHide()">hide me</button>
+                this is the config area
+            </div>
+        </div> -->
+    </main> 
 </body>
 </html>

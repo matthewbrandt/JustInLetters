@@ -2,17 +2,18 @@
 	--black: #000;
 	--darkgrey: #323234;
 	--lightgrey: #8E8E93;
+	--vanilla: #F6EFA6;
     --white: #fff;
 }
 
 @font-face {
 	font-family: Atkinson-Hyperlegible;
-	src: url('Atkinson-Hyperlegible-Regular-102.ttf') format('opentype');
+	src: url('../fonts/Atkinson-Hyperlegible-Regular-102.ttf') format('opentype');
 }
 
 @font-face {
 	font-family: Atkinson-Hyperlegible;
-	src: url('Atkinson-Hyperlegible-Bold-102.ttf') format('opentype');
+	src: url('../fonts/Atkinson-Hyperlegible-Bold-102.ttf') format('opentype');
 	font-weight: bold;
 }
 
@@ -42,6 +43,16 @@ body:not(b) {
 	color: var(--lightgrey);
 }
 
+h1 .pageHeader {
+	background-color: var(--darkgrey);
+	position: sticky;
+	top: 0;
+}
+
+h4#noChannelDefined {
+	display: none;
+}
+
 ol,
 ul {
 	list-style: none;
@@ -52,11 +63,53 @@ a {
 }
 
 p {
-    font-size: 20px;
-	line-height: 1rem;
+    font-size: 18px;
+	line-height: 1.3rem;
 	letter-spacing: 0.05rem;
 }
 
 span::after {
 	content: ': '
   }
+
+span#channelName::after {
+	content: '';
+}
+
+span.instructions {
+	color: var(--vanilla);
+}
+
+span.instructions::after{
+	content: '';
+}
+
+span#channelName {
+	color: var(--vanilla);
+}
+
+main {
+	display: flex;
+	flex-grow: 1;
+}
+
+#chatNode {
+	width: 50%;
+	flex-grow: 1;
+}
+
+#configWindow {
+	background-color: red;
+	width: 50%;
+	flex-grow: 1;
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	translate: 100%;
+}
+
+#configWindow.showing {
+	translate: none;
+	animation: transform 420ms ease-in-out;
+}
