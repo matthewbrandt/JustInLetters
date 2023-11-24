@@ -7,7 +7,11 @@ A great quote from their official [website](https://bionic-reading.com):
 # Preview
 This is what it looks like :)
 
-![JustInLetters](https://i.imgur.com/OCNEj10.png)
+![JustInLetters](https://i.imgur.com/8uqrRxD.png)
+
+# Usage
+Put your channel name into the URL like this: 
+https://justinletters.netlify.app/?c=matty_twoshoes
 
 # Credits
 This project was built live on stream with the help of:
