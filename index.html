@@ -17,7 +17,13 @@
     <div id="noChannel">
         <div>
             <p>There is no channel currently configured!</p>
-            <p>Append <span class="instructions">"?c=channelname"</span> to the URL and reload the page!</p>
+            <form method="get" action="/">
+                <label>
+                    Twitch Username
+                    <input type="text" name="c" placheolder="Your username here">
+                    <button type="submit">Submit</button> 
+                </label>
+            </form>
         </div>
     </div>
     <h4 id="noChannelDefined">Channel <span id="channelName">X</span> is connected.</h2>
