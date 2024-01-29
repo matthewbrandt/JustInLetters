@@ -4,17 +4,23 @@
 	--lightgrey: #8E8E93;
 	--vanilla: #F6EFA6;
     --white: #fff;
+	--mintgreen: #79ce94;
+	/* variables for config */
+	--chatmsgfontsize: 1.0em;
+	--chatmsgfontweight: 400;
+	--chatmsgfontkerning: 0.05rem;
 }
 
 @font-face {
 	font-family: Atkinson-Hyperlegible;
 	src: url('../fonts/Atkinson-Hyperlegible-Regular-102.ttf') format('opentype');
+	font-weight: 400;
 }
 
 @font-face {
 	font-family: Atkinson-Hyperlegible;
 	src: url('../fonts/Atkinson-Hyperlegible-Bold-102.ttf') format('opentype');
-	font-weight: bold;
+	font-weight: 700;
 }
 
 html,
@@ -104,7 +110,7 @@ main {
 }
 
 #configWindow {
-	background-color: red;
+	background-color: var(--black);
 	width: 50%;
 	flex-grow: 1;
 	position: absolute;
@@ -119,4 +125,11 @@ main {
 	translate: none;
 	animation: transform 420ms ease-in-out;
 	display: block;
+}
+
+#chatMessage > p {
+	font-size: var(--chatmsgfontsize);
+	line-height: 1;
+	font-weight: var(--chatmsgfontweight);
+	letter-spacing: var(--chatmsgfontkerning);
 }

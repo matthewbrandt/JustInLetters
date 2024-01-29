@@ -17,6 +17,48 @@ function clearStoredChannel() {
 	location.reload();
 }
 
+let root = document.querySelector(':root');
+
+function chatMsgFontSizeUp() {
+	let currentFontSize = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--chatmsgfontsize'));
+	if(currentFontSize <= 5) {
+		let newFontSize = currentFontSize + 0.1;
+		root.style.setProperty('--chatmsgfontsize', `${newFontSize}em`);
+	}
+}
+
+function chatMsgFontSizeDown() {
+	let currentFontSize = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--chatmsgfontsize'));
+	if(currentFontSize > 0.2) {
+		let newFontSize = currentFontSize - 0.1;
+		root.style.setProperty('--chatmsgfontsize', `${newFontSize}em`);
+	}
+}
+
+function chatMsgFontWeightUp() {
+	root.style.setProperty('--chatmsgfontweight', 700);
+}
+
+function chatMsgFontWeightDown() {
+	root.style.setProperty('--chatmsgfontweight', 400);
+}
+
+function chatMsgFontKerningUp() {
+	let currentFontKerning = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--chatmsgfontkerning'));
+	if(currentFontKerning < 1) {
+		let newFontKerning = currentFontKerning + 0.05;
+		root.style.setProperty('--chatmsgfontkerning', `${newFontKerning}rem`);
+	}
+}
+
+function chatMsgFontKerningDown() {
+	let currentFontKerning = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--chatmsgfontkerning'));
+	if(currentFontKerning > 0) {
+		let newFontKerning = currentFontKerning - 0.05;
+		root.style.setProperty('--chatmsgfontkerning', `${newFontKerning}rem`);
+	}
+}
+
 function sanitize(message) {
 	return DOMPurify.sanitize(message, {
 		FORBID_ATTR: ['style', 'onerror', 'onload', 'class', 'width', 'height', 'dir','img','br','a'],
