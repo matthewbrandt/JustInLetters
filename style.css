@@ -68,6 +68,10 @@ p {
 	letter-spacing: 0.05rem;
 }
 
+button#clearStorage {
+	display: none;
+}
+
 span::after {
 	content: ': '
   }
@@ -78,6 +82,7 @@ span#channelName::after {
 
 span.instructions {
 	color: var(--vanilla);
+	font-size: 18px;
 }
 
 span.instructions::after{
@@ -107,9 +112,11 @@ main {
 	top: 0;
 	bottom: 0;
 	translate: 100%;
+	display: none;
 }
 
 #configWindow.showing {
 	translate: none;
 	animation: transform 420ms ease-in-out;
+	display: block;
 }

@@ -10,6 +10,13 @@ function configHide() {
 	configWindow.classList.remove("showing");
 }
 
+function clearStoredChannel() {
+	// delete the variable from localstorage
+	localStorage.removeItem('channelName');
+	// reload the page for it to take affect
+	location.reload();
+}
+
 function sanitize(message) {
 	return DOMPurify.sanitize(message, {
 		FORBID_ATTR: ['style', 'onerror', 'onload', 'class', 'width', 'height', 'dir','img','br','a'],
@@ -88,6 +95,7 @@ function fart(channel) {
 if (paramValue !== undefined) {
 	document.getElementById('noChannel').style.display = "none";
 	document.getElementById('noChannelDefined').style.display = "block";
+	document.getElementById('clearStorage').style.display = "block";
 	localStorage.setItem('channelName',paramValue);
 	channel = paramValue;
 	// console.log("URL parameter found, overwriting localStorage")
@@ -101,6 +109,7 @@ if (paramValue !== undefined) {
 else if (localStorage.getItem('channelName')) {
 	document.getElementById('noChannel').style.display = "none";
 	document.getElementById('noChannelDefined').style.display = "block";
+	document.getElementById('clearStorage').style.display = "block";
 	channel = localStorage.getItem('channelName');
 	// console.log("localStorage channel found");
 	document.getElementById('channelName').innerText = channel;

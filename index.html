@@ -17,24 +17,35 @@
     <div id="noChannel">
         <div>
             <p>There is no channel currently configured!</p>
-            <p>Append <span class="instructions">"?c=channelname"</span> to the URL and reload the page!</p>
+            <!-- <p>Append <span class="instructions">"?c=channelname"</span> to the URL and reload the page!</p> -->
+            <form method="get" action="/">
+                <label>
+                    <span class="instructions">Twitch Username</span>
+                    <input type="text" name="c" placheolder="Your username here">
+                    <button type="submit">Submit</button> 
+                </label>
+            </form>
         </div>
     </div>
-    <h4 id="noChannelDefined">Channel <span id="channelName">X</span> is connected.</h2>
+    <h4 id="noChannelDefined">Channel <span id="channelName">X</span> is connected.</h4>
+    <button id="clearStorage" onClick="clearStoredChannel()">clear channel</button>
     <main>
         <div id="chatNode">
             <div id="chatMessage">
             </div>
         </div>
-        <!-- <div>      
+        <div>      
             <div id="configShow">
                 <button onClick="configShow()">show me</button>
             </div>
             <div id="configWindow">
                 <button onClick="configHide()">hide me</button>
-                this is the config area
+                <p>This is my config window</p>
+                    <ul>
+                        <li>list item 1</li>
+                    </ul>
             </div>
-        </div> -->
+        </div>
     </main> 
 </body>
 </html>
