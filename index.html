@@ -13,10 +13,11 @@
     <script defer src="/scripts/app.js"></script>
 </head>
 <body>
+    <div>
     <h1 class="pageHeader">JustInLetters: Read your Twitch chat bionically!</h1>
     <div id="noChannel">
         <div>
-            <p>There is no channel currently configured!</p>
+            <p class="ls-0">There is no channel currently configured!</p>
             <!-- <p>Append <span class="instructions">"?c=channelname"</span> to the URL and reload the page!</p> -->
             <form method="get" action="/">
                 <label>
@@ -28,33 +29,34 @@
         </div>
     </div>
     <h4 id="noChannelDefined">Channel <span id="channelName">X</span> is connected.</h4>
-    <button id="clearStorage" onClick="clearStoredChannel()">clear channel</button>
+    <div id="headerButtons">
+        <button id="clearStorage" onClick="clearStoredChannel()">Reset Channel</button>    
+        <button id="configShowButton" onClick="configShow()">Show Options</button>
+    </div>
+    </div>
+    <div> 
+           
+        <div id="configWindow">
+            <button id="configHideButton" onClick="configHide()">Hide</button>
+            <h3 class="configTitle">Here you are able to adjust some of the settings for chat.</h3>
+                <p class="configSubtitle">Font Size</p>
+                <button onClick="chatMsgFontSizeUp()">Larger</button>
+                <button onClick="chatMsgFontSizeDown()">Smaller</button>
+                
+                <p class="configSubtitle">Font Weight</p>
+                <button onClick="chatMsgFontWeightUp()">Bold</button>
+                <button onClick="chatMsgFontWeightDown()">Normal</button>
+
+                <p class="configSubtitle">Font Kerning (Letter Spacing)</p>
+                <button onClick="chatMsgFontKerningUp()">Wider</button>
+                <button onClick="chatMsgFontKerningDown()">Narrower</button>
+        </div>
+    </div>
     <main>
         <div id="chatNode">
             <div id="chatMessage">
             </div>
-        </div>
-        <div>      
-            <div id="configShow">
-                <button onClick="configShow()">show me</button>
-            </div>
-            <div id="configWindow">
-                <button onClick="configHide()">hide me</button>
-                <p>This is my config window</p>
-                    <ul>
-                        <li onClick="chatMsgFontSizeUp()">ENHANCE</li>
-                        <li onClick="chatMsgFontSizeDown()">DEHANCE</li>
-                    </ul>
-                    <ul>
-                        <li onClick="chatMsgFontWeightUp()">BOLDER</li>
-                        <li onClick="chatMsgFontWeightDown()">MEEKER</li>
-                    </ul>
-                    <ul>
-                        <li onClick="chatMsgFontKerningUp()">UNSQUEEZE</li>
-                        <li onClick="chatMsgFontKerningDown()">SQUEEZE</li>
-                    </ul>
-            </div>
-        </div>
+        </div>        
     </main> 
 </body>
 </html>

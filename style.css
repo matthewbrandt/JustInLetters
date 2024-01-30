@@ -1,10 +1,10 @@
 :root {
 	--black: #000;
-	--darkgrey: #323234;
+	--darkgrey: #2a2a2d;
 	--lightgrey: #8E8E93;
 	--vanilla: #F6EFA6;
     --white: #fff;
-	--mintgreen: #79ce94;
+	--magentahaze: #A02C6C;
 	/* variables for config */
 	--chatmsgfontsize: 1.0em;
 	--chatmsgfontweight: 400;
@@ -74,6 +74,45 @@ p {
 	letter-spacing: 0.05rem;
 }
 
+.ls-0 {
+	letter-spacing: 0;
+}
+
+button {
+  background: var(--magentahaze);
+  border: 1px solid var(--magentahaze);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: var(--white);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+button:hover,
+button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: var(--magentahaze);
+}
+
+button:active {
+  opacity: .5;
+}
+
 button#clearStorage {
 	display: none;
 }
@@ -99,6 +138,11 @@ span#channelName {
 	color: var(--vanilla);
 }
 
+#headerButtons {
+	display: flex;
+	justify-content: space-between;
+}
+
 main {
 	display: flex;
 	flex-grow: 1;
@@ -110,8 +154,9 @@ main {
 }
 
 #configWindow {
+	padding: 20px;
 	background-color: var(--black);
-	width: 50%;
+	width: 30%;
 	flex-grow: 1;
 	position: absolute;
 	right: 0;
@@ -121,9 +166,13 @@ main {
 	display: none;
 }
 
+.configTitle {
+	padding: 20px 0px 0px 0px;
+}
+
 #configWindow.showing {
-	translate: none;
-	animation: transform 420ms ease-in-out;
+	transform: translate(-100%);
+	animation: transform 4200ms ease-in-out;
 	display: block;
 }
 
