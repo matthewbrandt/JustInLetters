@@ -1,20 +1,26 @@
 :root {
 	--black: #000;
-	--darkgrey: #323234;
+	--darkgrey: #2a2a2d;
 	--lightgrey: #8E8E93;
 	--vanilla: #F6EFA6;
     --white: #fff;
+	--magentahaze: #A02C6C;
+	/* variables for config */
+	--chatmsgfontsize: 1.0em;
+	--chatmsgfontweight: 400;
+	--chatmsgfontkerning: 0.05rem;
 }
 
 @font-face {
 	font-family: Atkinson-Hyperlegible;
 	src: url('../fonts/Atkinson-Hyperlegible-Regular-102.ttf') format('opentype');
+	font-weight: 400;
 }
 
 @font-face {
 	font-family: Atkinson-Hyperlegible;
 	src: url('../fonts/Atkinson-Hyperlegible-Bold-102.ttf') format('opentype');
-	font-weight: bold;
+	font-weight: 700;
 }
 
 html,
@@ -68,6 +74,49 @@ p {
 	letter-spacing: 0.05rem;
 }
 
+.ls-0 {
+	letter-spacing: 0;
+}
+
+button {
+  background: var(--magentahaze);
+  border: 1px solid var(--magentahaze);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: var(--white);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+button:hover,
+button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: var(--magentahaze);
+}
+
+button:active {
+  opacity: .5;
+}
+
+button#clearStorage {
+	display: none;
+}
+
 span::after {
 	content: ': '
   }
@@ -78,6 +127,7 @@ span#channelName::after {
 
 span.instructions {
 	color: var(--vanilla);
+	font-size: 18px;
 }
 
 span.instructions::after{
@@ -86,6 +136,11 @@ span.instructions::after{
 
 span#channelName {
 	color: var(--vanilla);
+}
+
+#headerButtons {
+	display: flex;
+	justify-content: space-between;
 }
 
 main {
@@ -99,17 +154,31 @@ main {
 }
 
 #configWindow {
-	background-color: red;
-	width: 50%;
+	padding: 20px;
+	background-color: var(--black);
+	width: 30%;
 	flex-grow: 1;
 	position: absolute;
 	right: 0;
 	top: 0;
 	bottom: 0;
 	translate: 100%;
+	display: none;
+}
+
+.configTitle {
+	padding: 20px 0px 0px 0px;
 }
 
 #configWindow.showing {
-	translate: none;
-	animation: transform 420ms ease-in-out;
+	transform: translate(-100%);
+	animation: transform 4200ms ease-in-out;
+	display: block;
+}
+
+#chatMessage > p {
+	font-size: var(--chatmsgfontsize);
+	line-height: 1;
+	font-weight: var(--chatmsgfontweight);
+	letter-spacing: var(--chatmsgfontkerning);
 }
